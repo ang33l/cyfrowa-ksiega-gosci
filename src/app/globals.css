@@ -2,26 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+  background: linear-gradient(290.85deg, #FFFFFF 30.84%, #FFE6B6 86.8%);
+  min-height: 100dvh;
+  height: 100%; /* wstepnie, potem zmienic zeby nie wyjebac */
+}
+.bg-primary{
+  background-color: #FFE7B8;
+}
+.border-primary{
+  border: 1px solid #C0C0C0;
+}
+.text-secondary{
+  color: #C0C0C0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.menu-bg{
+  background: linear-gradient(290.85deg, #FFFFFF 30.84%, #FFE6B6 86.8%);
 }
