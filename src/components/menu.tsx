@@ -5,7 +5,7 @@ import { BsPencil, BsUpload } from "react-icons/bs";
 import { GiMusicalNotes } from "react-icons/gi";
 const inkFree = localFont({ src: "../fonts/InkFreeImproved.woff" });
 import { useState, } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdClose } from "react-icons/md";
@@ -21,9 +21,8 @@ function MenuButton(props: { toggleMenu: Dispatch<SetStateAction<boolean>> }) {
 
 function Menu(props: { menuOpened: boolean, toggleMenu: Dispatch<SetStateAction<boolean>> }) {
     const { menuOpened, toggleMenu } = props
-    const router = useRouter();
+    const pathname = usePathname();
 
-    console.log(router)
 
     const menuItems = [
         { label: 'Strona główna', path: '/' },
@@ -40,7 +39,7 @@ function Menu(props: { menuOpened: boolean, toggleMenu: Dispatch<SetStateAction<
                 {menuItems.map((item, index) => (
                     <li
                         key={index}
-                        className={`mb-2 ${router.pathname === item.path ? 'text-yellow-500' : ''
+                        className={`mb-2 ${pathname === item.path ? 'text-yellow-500' : ''
                             }`}
                     >
                         <Link href={item.path}>{item.label}</Link>
