@@ -1,77 +1,48 @@
-import Link from "next/link";
-import { BsHeartFill, BsPencil, BsUpload } from "react-icons/bs";
-import localFont from "next/font/local";
-import { GiMusicalNotes } from "react-icons/gi";
+"use client";
+import { useQuery } from "convex/react";
+import { api } from "../../convex/_generated/api";
+import Header from "@/components/header";
+import Wish from "@/components/home/wish";
+import { usePaginatedQuery } from "convex/react";
+import { useRef, useEffect, useState } from 'react';
+import { useIntersection, useWindowScroll } from '@mantine/hooks';
+import Spinner from "@/components/spinner";
+export default function Home() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0)
+  const [scroll, scrollTo] = useWindowScroll();
 
-const rosaline = localFont({ src: "../fonts/RosalineSignature.ttf" });
-const inkFree = localFont({ src: "../fonts/InkFreeImproved.woff" });
+  const { ref, entry } = useIntersection();
 
-export default async function Home() {
+  const { results, status, loadMore } = usePaginatedQuery(
+    api.wishes.getWishes,
+    {},
+    { initialNumItems: 10 }
+  );
+
+  useEffect(() => {
+    if (entry?.isIntersecting) {
+      loadMore(10);
+    }
+  }, [scroll.y])
   return (
-    <div
-      className={
-        "flex flex-col gap-2 justify-center items-center h-screen px-2"
-      }
-    >
-      <div className={`flex gap-3 text-7xl items-center ${rosaline.className}`}>
-        Anna <BsHeartFill className={"text-4xl"} /> Alekasander
-      </div>
-      <h1 className={`${inkFree.className} text-4xl px-2`}>
-        Zostaw coś po sobie!
-      </h1>
-      <div>
-        <div className={`flex  ${inkFree.className} pt-2`}>
-          <Link
-            href="/wishes"
-            className={`
-          border-primary 
-          text-center 
-          flex flex-col gap-2
-          items-center justify-center 
-          p-5 
-          text-3xl 
-          bg-primary 
-          hover:border-sky-400 hover:bg-orange-300 
-          focus:border-sky-400 focus:bg-orange-300`}
-          >
-            Złóż życzenia <BsPencil />
-          </Link>
-          <Link
-            href="/upload"
-            className={`
-          border-primary 
-          text-center 
-          flex flex-col gap-2
-          items-center justify-center 
-          p-5 
-          text-3xl 
-          bg-primary 
-          hover:border-sky-400 hover:bg-orange-300 
-          focus:border-sky-400 focus:bg-orange-300`}
-          >
-            Prześlij zdjęcia <BsUpload />
-          </Link>
+    <>
+      <Header />
+      <div
+        className={
+          `flex flex-col gap-2 justify-center p-2 `
+        }
+      >
+
+        <h1 className="text-3xl">Ostatnio dodane</h1>
+        <div className="flex flex-col gap-2">
+          {results?.map(({ _id, wish_author, wish_content, _creationTime }, i) => (
+            <Wish key={i} _id={_id} wish_author={wish_author} wish_content={wish_content} _creationTime={_creationTime} />
+          ))}
+          <div> {status === "LoadingMore" ? <div className="text-2xl text-center py-4"><Spinner /></div> : status === "CanLoadMore" ? <div ref={ref}></div> : status === "Exhausted" && <div className="text-2xl text-center py-4">To wszystkie dostępne wpisy!</div>}</div>
+
         </div>
-        <div>
-          <Link
-            href="/songbook"
-            className={`
-            ${inkFree.className}
-          border-primary 
-          text-center 
-          flex gap-2
-          items-center justify-center 
-          p-5 
-          text-3xl 
-          bg-primary 
-          hover:border-sky-400 hover:bg-orange-300 
-          focus:border-sky-400 focus:bg-orange-300`}
-          >
-            <GiMusicalNotes />
-            Śpiewnik
-          </Link>
-        </div>
-      </div>
-    </div>
+
+      </div></>
   );
 }

@@ -4,6 +4,8 @@ import ConvexClientProvider from './(components)/ConvexClientProvider'
 import { Suspense } from 'react'
 import { UserAuthProvider, useUserAuth } from './(components)/UserAuthProvider'
 import UserAuth from '@/components/userAuth'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import ClientLayout from './client_layout'
 
 
 export const metadata: Metadata = {
@@ -17,14 +19,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
+
   return (
     <ConvexClientProvider>
 
       <html lang="en">
         <body>
           <UserAuthProvider>
-            {children}
-
+            <ClientLayout>
+              {children}
+            </ClientLayout>
           </UserAuthProvider>
         </body>
       </html>

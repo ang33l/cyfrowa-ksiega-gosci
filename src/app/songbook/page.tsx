@@ -8,10 +8,7 @@ import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { Doc } from "../../../convex/_generated/dataModel";
 import Spinner from "@/components/spinner";
-const inkFree = localFont({ src: "../../fonts/InkFreeImproved.woff" });
 const tnr = localFont({ src: "../../fonts/TimesNewRoman.ttf" });
-
-//TODO: https://flaviocopes.com/nextjs-fix-prismaclient-unable-run-browser/
 
 export default function Search() {
     const [search, setSearch] = useState<string>("");
@@ -33,7 +30,7 @@ export default function Search() {
     }, [debouncedSearch]);
 
     return (
-        <div className={`flex flex-col gap-4 w-full ${inkFree.className}`}>
+        <div className={`flex flex-col gap-4 w-full `}>
             <h1 className={`text-2xl text-center px-2`}>
                 Wpisz tytuł lub tekst lub wyszukaj z listy poniżej!
             </h1>

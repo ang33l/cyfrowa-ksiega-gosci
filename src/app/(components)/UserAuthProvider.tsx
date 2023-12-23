@@ -1,5 +1,5 @@
 "use client";
-import { ReactNode, createContext, useState, useContext } from "react";
+import { ReactNode, createContext, useState, useContext, useEffect } from "react";
 import { api } from "../../../convex/_generated/api";
 import { useQuery } from "convex/react";
 import UserAuth from "@/components/userAuth";
@@ -25,6 +25,7 @@ export function UserAuthProvider({
     const setPinCode = (pin: string) => {
         setPin(pin);
         setIsAuthenticated(true);
+        document.cookie = `guestPin=${pin}; max-age=${30 * 24 * 60 * 60}; path=/`;
     }
 
     return (

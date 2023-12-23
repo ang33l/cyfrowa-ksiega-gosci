@@ -6,6 +6,7 @@ body{
   background: linear-gradient(290.85deg, #FFFFFF 30.84%, #FFE6B6 86.8%);
   min-height: 100dvh;
   height: 100%; /* wstepnie, potem zmienic zeby nie wyjebac */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 .bg-primary{
   background-color: #FFE7B8;
@@ -20,3 +21,47 @@ body{
 .menu-bg{
   background: linear-gradient(290.85deg, #FFFFFF 30.84%, #FFE6B6 86.8%);
 }
+.text--ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-height: 3em; 
+  transition: max-height 1s ease-in;
+}
+
+.expanded-text {
+  overflow: hidden;
+  white-space: normal;
+  max-height: 9999px; 
+  transition: max-height 1s ease-in-out;
+}
+
+.expanded-text:before {
+  content: '';
+  display: block;
+  height: 0;
+  overflow: hidden;
+  transition: height 1s ease-in;
+}
+
+.expanded-text .text--ellipsis:before {
+  height: 3em; 
+}
+.each-slide-effect > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 350px;
+}
+
+.each-slide-effect{
+  height: 350px;
+}
+.each-slide-effect img {
+  object-fit: cover;
+  max-height: 350px;
+  width: 100%;
+}
+
+
