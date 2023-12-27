@@ -4,16 +4,21 @@ import Link from "next/link";
 import { FaTrashAlt } from "react-icons/fa";
 import { useState } from "react";
 import DialogTemplate from "@/components/dialog";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "../../../../convex/_generated/api";
-import { useMutation } from "convex/react";
+import { useMutation } from "@tanstack/react-query";
+
 import { Doc, Id } from "../../../../convex/_generated/dataModel";
+import axios from "axios";
 export default function Wish({ _id, wish_author, wish_content, _creationTime }: { _id: string, wish_author: string, wish_content: string, _creationTime: number }) {
     const time = new Date(_creationTime);
 
-    const deleteFunction = useMutation(api.wishes.deleteWish)
+    const deleteMutation = useMutation({
+        mutationFn: async () => {
+            await axios.delete(`/api/delete/wish/`, { data: { wish_id: _id } })
+        }
+    })
     const onDelete = () => {
-        deleteFunction({ wish_id: _id as Id<"wish"> })
+        deleteMutation.mutate()
+        //deleteFunction({ wish_id: _id as Id<"wish"> })
     }
 
     return (<><div className="bg-[#f7ba604b] px-2 py-4 flex flex-col rounded-lg gap-2">

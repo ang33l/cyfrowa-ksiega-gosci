@@ -31,22 +31,38 @@ export default function Wish({ _id, wish_author, wish_content, _creationTime }: 
             >
                 {wish_content}
             </p>
-            {imagesLinks && imagesLinks?.length === 1 ?
+            {imagesLinks && imagesLinks?.length === 1 ? imagesLinks[0].wish_media_file.includes('.mp4') ? <video
+
+                className="w-full max-h-[350px]"
+                src={`/api/get/image/${imagesLinks[0].wish_media_file}`} controls>
+            </video> :
                 <PhotoProvider>
                     <PhotoView src={`/api/get/image/${imagesLinks[0].wish_media_file}`}>
-                        <Image src={`/api/get/image/${imagesLinks[0].wish_media_file}`} width={1000} height={1000} alt="" />
+
+                        <Image
+                            src={`/api/get/image/${imagesLinks[0].wish_media_file}`}
+                            width={1000}
+                            height={1000}
+                            alt="" loading="lazy" />
+
                     </PhotoView>
                 </PhotoProvider>
                 :
                 imagesLinks?.length !== 0 && <PhotoProvider>
                     <Fade autoplay={false}>
                         {imagesLinks?.map(({ wish_media_file }, i) => {
+                            const isMp4 = wish_media_file.includes('.mp4');
+
                             return (
 
                                 <div key={i} className="each-slide-effect">
-                                    <PhotoView src={`/api/get/image/${wish_media_file}`}>
-                                        <Image src={`/api/get/image/${wish_media_file}`} width={1000} height={1000} alt="" />
-                                    </PhotoView>
+                                    {isMp4 ? <video
+                                        className="w-full max-h-[350px]"
+                                        src={`/api/get/image/${wish_media_file}`} controls></video>
+                                        :
+                                        <PhotoView src={`/api/get/image/${wish_media_file}`}>
+                                            <Image loading="lazy" src={`/api/get/image/${wish_media_file}`} width={1000} height={1000} alt="" />
+                                        </PhotoView>}
                                 </div>
                             )
                         })}

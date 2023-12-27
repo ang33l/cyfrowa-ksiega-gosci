@@ -56,5 +56,7 @@ export const deleteWish = mutation({
       await ctx.db.delete(single._id);
     }
     await ctx.db.delete(args.wish_id);
+
+    return related_wish_media;
   },
 });
