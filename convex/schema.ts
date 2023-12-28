@@ -16,7 +16,12 @@ export default defineSchema({
     wish_media_file: v.string(),
     wish_id: v.id("wish"),
   }),
-  songbook: defineTable({ song_text: v.string(), song_title: v.string() }),
+  songbook: defineTable({
+    song_text: v.string(),
+    song_title: v.string(),
+  }).searchIndex("search_title", {
+    searchField: "song_title",
+  }),
   password: defineTable({
     hashed_password: v.string(),
     password_type_id: v.id("password_type"),

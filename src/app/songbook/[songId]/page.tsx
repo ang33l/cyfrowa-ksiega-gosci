@@ -6,7 +6,7 @@ import { useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 import { MdArrowBackIos } from "react-icons/md";
 import Spinner from "@/components/spinner";
-export default async function Page({ params: { songId } }: { params: { songId: string } }) {
+export default function Page({ params: { songId } }: { params: { songId: string } }) {
 
     const song = useQuery(api.songs.single, { song_id: songId })
 

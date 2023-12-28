@@ -60,3 +60,13 @@ export const deleteWish = mutation({
     return related_wish_media;
   },
 });
+
+export const single = query({
+  args: { wish_id: v.string() },
+  handler: async ({ db }, { wish_id }) => {
+    return await db
+      .query("wish")
+      .filter((q) => q.eq(q.field("_id"), wish_id))
+      .collect();
+  },
+});
