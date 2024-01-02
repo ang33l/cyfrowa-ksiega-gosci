@@ -33,4 +33,22 @@ export default defineSchema({
     meal_description: v.string(),
   }),
   schedule: defineTable({ time: v.string(), description: v.string() }),
+  song_suggest: defineTable({
+    song_name: v.string(),
+    sung: v.boolean(),
+  }).searchIndex("search_song_name", {
+    searchField: "song_name",
+  }),
+  question: defineTable({
+    query: v.string(),
+    enabled: v.boolean(),
+  }).searchIndex("search_query", {
+    searchField: "query",
+  }),
+  question_answer: defineTable({
+    question_id: v.id("question"),
+    answer: v.string(),
+    correct: v.boolean(),
+  }),
+  quiz_stat: defineTable({}),
 });

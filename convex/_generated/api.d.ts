@@ -16,7 +16,9 @@ import type {
 } from "convex/server";
 import type * as files from "../files.js";
 import type * as passwords from "../passwords.js";
+import type * as question from "../question.js";
 import type * as songs from "../songs.js";
+import type * as song_suggest from "../song_suggest.js";
 import type * as wishes from "../wishes.js";
 
 /**
@@ -30,7 +32,9 @@ import type * as wishes from "../wishes.js";
 declare const fullApi: ApiFromModules<{
   files: typeof files;
   passwords: typeof passwords;
+  question: typeof question;
   songs: typeof songs;
+  song_suggest: typeof song_suggest;
   wishes: typeof wishes;
 }>;
 export declare const api: FilterApi<

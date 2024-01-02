@@ -8,6 +8,7 @@ import { api } from "../../../../convex/_generated/api";
 export default function Page() {
     const wishes = useQuery(api.wishes.getWishesCount)
     const media = useQuery(api.files.getFilesCount)
+    const suggests = useQuery(api.song_suggest.getSongSuggestsCount)
     return (
         <div className="mt-6">
             <LeadText>
@@ -29,6 +30,11 @@ export default function Page() {
                         <Stat name={"Przesłanych plików"} counter={media} />
                         :
                         <Stat name={"Przesłanych plików"} loading={true} />
+                    }
+                    {suggests ?
+                        <Stat name={"Niezagranych sugestii piosenek"} counter={suggests} />
+                        :
+                        <Stat name={"Niezagranych sugestii piosenek"} loading={true} />
                     }
                 </div>
 

@@ -40,7 +40,7 @@ function Menu(props: { menuOpened: boolean, toggleMenu: Dispatch<SetStateAction<
                 {menuItems.map((item, index) => (
                     <li
                         key={index}
-                        className={`rounded-xl  ${pathname === item.path ? 'bg-[#f7ba604b] font-bold' : ''
+                        className={`rounded-xl  ${pathname.includes(item.path) ? 'bg-[#f7ba604b] font-bold' : ''
                             }`}
                     >
                         <Link className="px-2 py-3 block" onClick={() => toggleMenu((e) => !e)} href={item.path}>{item.label}</Link>
@@ -51,7 +51,7 @@ function Menu(props: { menuOpened: boolean, toggleMenu: Dispatch<SetStateAction<
             <h2 className="text-center text-xl mb-2">Powrót do strony głównej</h2>
             <div className="flex gap-2">
                 <Link className="flex-1 text-center py-2 rounded-xl bg-[#f7ba604b]"
-                    href="/admin/home">
+                    href="/">
                     Wyloguj się
                 </Link>
             </div>
