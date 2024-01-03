@@ -50,5 +50,14 @@ export default defineSchema({
     answer: v.string(),
     correct: v.boolean(),
   }),
+  quiz: defineTable({
+    quiz_uid: v.string(),
+    quiz_completed: v.boolean(),
+  }),
+  quiz_question: defineTable({
+    quiz_id: v.id("quiz"),
+    question_id: v.id("question"),
+    answer: v.optional(v.id("question_answer")),
+  }),
   quiz_stat: defineTable({}),
 });
