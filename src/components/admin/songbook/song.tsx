@@ -1,12 +1,9 @@
 "use client"
-import Button from "@/components/button";
 import Link from "next/link";
 import { FaTrashAlt } from "react-icons/fa";
-import { useState } from "react";
 import DialogTemplate from "@/components/dialog";
 
-import { Doc, Id } from "../../../../convex/_generated/dataModel";
-import axios from "axios";
+import { Id } from "../../../../convex/_generated/dataModel";
 import { useMutation } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 export default function Song({ _id, song_title, song_text, _creationTime }: { _id: string, song_title: string, song_text: string, _creationTime: number }) {

@@ -1,5 +1,4 @@
 import Header from "@/components/header";
-import localFont from "next/font/local";
 import { EmployeeAuthProvider } from "../(components)/EmployeeAuthProvider";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

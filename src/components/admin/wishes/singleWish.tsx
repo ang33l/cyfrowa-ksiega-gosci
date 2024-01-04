@@ -1,12 +1,9 @@
 "use client"
-import Button from "@/components/button";
-import Link from "next/link";
 import { FaTrashAlt } from "react-icons/fa";
-import { useState } from "react";
+
 import DialogTemplate from "@/components/dialog";
 import { useMutation } from "@tanstack/react-query";
 
-import { Doc, Id } from "../../../../convex/_generated/dataModel";
 import axios from "axios";
 import { api } from "../../../../convex/_generated/api";
 import { useQuery } from "convex/react";

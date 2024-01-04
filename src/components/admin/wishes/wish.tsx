@@ -1,12 +1,9 @@
 "use client"
-import Button from "@/components/button";
 import Link from "next/link";
 import { FaTrashAlt } from "react-icons/fa";
-import { useState } from "react";
 import DialogTemplate from "@/components/dialog";
 import { useMutation } from "@tanstack/react-query";
 
-import { Doc, Id } from "../../../../convex/_generated/dataModel";
 import axios from "axios";
 export default function Wish({ _id, wish_author, wish_content, _creationTime }: { _id: string, wish_author: string, wish_content: string, _creationTime: number }) {
     const time = new Date(_creationTime);

@@ -1,9 +1,5 @@
 "use client"
-import localFont from "next/font/local";
 import Link from "next/link";
-import { BsPencil, BsUpload } from "react-icons/bs";
-import { GiMusicalNotes } from "react-icons/gi";
-import { useState, } from 'react';
 import { usePathname } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
 import { RxHamburgerMenu } from "react-icons/rx";

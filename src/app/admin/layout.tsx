@@ -1,5 +1,3 @@
-import Header from "@/components/header";
-import localFont from "next/font/local";
 import { AdminAuthProvider } from "../(components)/AdminAuthProvider";
 import AdminHeader from "@/components/header/adminHeader";
 

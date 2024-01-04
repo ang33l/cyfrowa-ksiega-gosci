@@ -1,10 +1,9 @@
 "use client"
-import { useState, useEffect } from "react"
+import { useState, } from "react"
 import { useQuery } from "convex/react";
 import Image from "next/image"
-import { SlideshowLightbox, initLightboxJS } from 'lightbox.js-react'
 import { api } from "../../../../convex/_generated/api";
-import { Fade, Slide } from 'react-slideshow-image';
+import { Fade } from 'react-slideshow-image';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 export default function Wish({ _id, wish_author, wish_content, _creationTime }: { _id: string, wish_author: string, wish_content: string, _creationTime: number }) {
@@ -16,10 +15,6 @@ export default function Wish({ _id, wish_author, wish_content, _creationTime }: 
 
     const imagesLinks = useQuery(api.files.getImagesOfWish, { wish_id: _id })
 
-    //jesli na dniach otrzymam to zrobie z tym
-    /*useEffect(() => {
-        initLightboxJS("Insert License key", "Insert plan type here");
-    });*/
     const time = new Date(_creationTime);
     return (
         <div className="bg-[#f7ba604b] px-2 py-4 transition-all">

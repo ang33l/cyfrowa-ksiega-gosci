@@ -1,15 +1,10 @@
 "use client";
 import Button from "@/components/button";
-//import submitWishes from "@/system/submitWishes";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import LeadText from "@/components/leadText";
 import { ImSpinner2 } from "react-icons/im";
-import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
 import { useRouter } from "next/navigation";
-import axios, { AxiosProgressEvent } from "axios";
+import axios from "axios";
 import Input from "@/components/input/index";
 
 export default function Page() {
@@ -69,7 +64,6 @@ export default function Page() {
 
     return (
         <form onSubmit={submitForm} className={"flex flex-col gap-4 max-w-xl"}>
-            <ToastContainer />
             <LeadText>Posiadasz zdjęcia bądź filmy z tego najważniejszego dla nas dnia? Prześlij je w tym miejscu!</LeadText>
             <Input
                 label={"Podpisz się"}

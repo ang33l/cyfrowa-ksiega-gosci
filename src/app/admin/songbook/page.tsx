@@ -7,7 +7,6 @@ import { api } from "../../../../convex/_generated/api";
 import { useIntersection, useWindowScroll } from "@mantine/hooks";
 import Song from "@/components/admin/songbook/song";
 import Spinner from "@/components/spinner";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function Page() {

@@ -1,12 +1,9 @@
 "use client"
-import Button from "@/components/button";
 import Link from "next/link";
 import { FaCheck, FaTrashAlt } from "react-icons/fa";
-import { useState } from "react";
 import DialogTemplate from "@/components/dialog";
 
-import { Doc, Id } from "../../../../convex/_generated/dataModel";
-import axios from "axios";
+import { Id } from "../../../../convex/_generated/dataModel";
 import { useMutation } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 export default function Question({ _id, query, enabled, _creationTime }: { _id: string, query: string, enabled: boolean, _creationTime: number }) {

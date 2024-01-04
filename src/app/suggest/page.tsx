@@ -1,5 +1,4 @@
 "use client"
-import Input from "@/components/input/index";
 import LeadText from "@/components/leadText";
 import { useMutation } from "convex/react";
 import { useState } from "react";

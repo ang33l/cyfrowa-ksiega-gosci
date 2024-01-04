@@ -6,7 +6,6 @@ import { useMutation } from "convex/react";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { FiEdit } from "react-icons/fi";
-import { IoAdd } from "react-icons/io5";
 
 export default function SingleEvent({ data }: {
     data: {

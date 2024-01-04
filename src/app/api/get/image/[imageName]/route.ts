@@ -9,17 +9,14 @@ export async function GET(
   const imageName = params.imageName;
 
   try {
-    // Odczytaj zawartość pliku obrazu z folderu /files
     const imagePath = join(process.cwd(), "files", imageName);
     const imageBuffer = await readFile(imagePath);
-    // Przesłanie zawartości pliku w odpowiedzi
     return new NextResponse(imageBuffer, {
       headers: {
-        "Content-Type": "image/jpeg", // Zmienić typ zawartości w zależności od formatu obrazu
+        "Content-Type": "image/jpeg", //TODO: Zmienić typ zawartości w zależności od formatu obrazu
       },
     });
   } catch (error) {
-    // Obsługa błędu, np. jeżeli plik nie istnieje
     console.error(`Błąd: ${error}`);
     return new NextResponse(
       JSON.stringify({ error: "Nie udało się przesłać obrazu" }),

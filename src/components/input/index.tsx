@@ -1,9 +1,7 @@
 "use client";
-import localFont from "next/font/local";
-import { ChangeEventHandler, DetailedHTMLProps, Dispatch, InputHTMLAttributes, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { BsUpload } from "react-icons/bs";
 import { handleAddImages, FilesInspect } from "./handleUpload";
-import Image from "next/image";
 
 
 

@@ -1,17 +1,12 @@
 "use client"
-import Button from "@/components/button";
-import Link from "next/link";
 import { FaCheck, FaTrashAlt } from "react-icons/fa";
 import { useState } from "react";
 import DialogTemplate from "@/components/dialog";
 
-import { Doc, Id } from "../../../../convex/_generated/dataModel";
-import axios from "axios";
+import { Id } from "../../../../convex/_generated/dataModel";
+
 import { api } from "../../../../convex/_generated/api";
 import { useMutation, useQuery } from "convex/react";
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import Image from "next/image";
-import { Fade } from "react-slideshow-image";
 import { useRouter } from "next/navigation";
 import { RxCross2 } from "react-icons/rx";
 import { FiEdit } from "react-icons/fi";

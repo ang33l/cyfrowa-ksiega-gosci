@@ -1,5 +1,3 @@
-import localFont from "next/font/local";
-
 interface ButtonProps {
     children: React.ReactNode;
     onClick?: () => void;

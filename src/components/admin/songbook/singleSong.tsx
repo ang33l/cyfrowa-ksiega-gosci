@@ -1,18 +1,13 @@
 "use client"
-import Button from "@/components/button";
-import Link from "next/link";
 import { FaTrashAlt } from "react-icons/fa";
 import { useState } from "react";
 import DialogTemplate from "@/components/dialog";
 import { useMutation } from "@tanstack/react-query";
 
-import { Doc, Id } from "../../../../convex/_generated/dataModel";
+import { Id } from "../../../../convex/_generated/dataModel";
 import axios from "axios";
 import { api } from "../../../../convex/_generated/api";
-import { useQuery, useMutation as useMutationConvex } from "convex/react";
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import Image from "next/image";
-import { Fade } from "react-slideshow-image";
+import { useMutation as useMutationConvex } from "convex/react";
 import { useRouter } from "next/navigation";
 import { FiEdit } from "react-icons/fi";
 import { FaCheck } from "react-icons/fa";
@@ -23,7 +18,6 @@ export default function SingleSong({ _id, song_title, song_text, _creationTime }
     const [text, setText] = useState(song_text)
     const [titleEditMode, setTitleEditMode] = useState(false)
     const [textEditMode, setTextEditMode] = useState(false)
-    const time = new Date(_creationTime);
     const deleteMutation = useMutation({
         mutationFn: async () => {
             await axios.delete(`/api/delete/wish/`, { data: { wish_id: _id } })

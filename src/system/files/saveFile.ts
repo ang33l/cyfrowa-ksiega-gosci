@@ -2,7 +2,6 @@ const fs = require("fs");
 
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../convex/_generated/api.js";
-import { v } from "convex/values";
 
 import guidGenerator from "../uidGenerator";
 const filePath = process.env.FILE_UPLOAD_URL;

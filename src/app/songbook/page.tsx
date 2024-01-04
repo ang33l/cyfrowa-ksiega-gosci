@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import Link from "next/link";
 import useDebounce from "@/hooks/useDebounce";
 import { useState, useEffect } from "react";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { Doc } from "../../../convex/_generated/dataModel";

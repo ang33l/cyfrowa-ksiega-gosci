@@ -7,7 +7,6 @@ import { api } from "../../../../convex/_generated/api";
 import { useIntersection, useWindowScroll } from "@mantine/hooks";
 import Spinner from "@/components/spinner";
 import Wish from "@/components/admin/wishes/wish";
-import DialogTemplate from "@/components/dialog";
 
 export default function Page() {
     const [search, setSearch] = useState<string>("");
@@ -41,7 +40,7 @@ export default function Page() {
                     <Wish key={i} wish_author={wish_author} wish_content={wish_content} _id={_id} _creationTime={_creationTime} />
                 ))}
                 <div> {status === "LoadingMore" ? <div className="text-2xl text-center py-4"><Spinner /></div> : status === "CanLoadMore" ? <div ref={ref}></div> : status === "Exhausted" && <div className="text-2xl text-center py-4">To wszystkie dostępne wpisy!</div>}</div>
-                <DialogTemplate />
+
             </div>
         </div>
     )

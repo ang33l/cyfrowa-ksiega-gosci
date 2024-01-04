@@ -1,9 +1,6 @@
 "use client";
 import { ReactNode, createContext, useState, useContext, useEffect } from "react";
-import { api } from "../../../convex/_generated/api";
-import { useQuery } from "convex/react";
 import UserAuth from "@/components/userAuth";
-//import UserAuth from "@/components/userAuth";
 
 interface AuthContextProps {
     isAuthenticated: boolean;

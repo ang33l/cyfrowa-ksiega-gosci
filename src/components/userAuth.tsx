@@ -5,7 +5,6 @@ import { useQuery } from 'convex/react';
 import { api } from '../../convex/_generated/api';
 import localFont from "next/font/local";
 import { BsHeartFill } from 'react-icons/bs';
-import Spinner from './spinner';
 import Loading from '@/app/loading';
 
 const rosaline = localFont({ src: "../fonts/RosalineSignature.ttf" });

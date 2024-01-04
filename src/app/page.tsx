@@ -1,15 +1,12 @@
 "use client";
-import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import Header from "@/components/header";
 import Wish from "@/components/home/wish";
 import { usePaginatedQuery } from "convex/react";
-import { useRef, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useIntersection, useWindowScroll } from '@mantine/hooks';
 import Spinner from "@/components/spinner";
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0)
   const [scroll, scrollTo] = useWindowScroll();
 
   const { ref, entry } = useIntersection();

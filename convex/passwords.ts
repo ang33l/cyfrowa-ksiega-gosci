@@ -1,5 +1,5 @@
 import { transpileModule } from "typescript";
-import { query } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const compareToGuestPassword = query({
@@ -101,5 +101,28 @@ export const compareToEmployeePassword = query({
     } else {
       return false;
     }
+  },
+});
+
+export const updateGuestPassword = mutation({
+  args: { password: v.string() },
+  handler: async ({ db }, { password }) => {
+    const guestId = await db
+      .query("password_type")
+      .filter((q) => q.eq(q.field("password_description"), "guest"))
+      .collect();
+    if (!guestId) {
+      return false;
+    }
+    if (guestId.length == 0) {
+      return false;
+    }
+
+    const user = await db
+      .query("password")
+      .filter((q) => q.eq(q.field("password_type_id"), guestId[0]._id))
+      .collect();
+
+    return await db.patch(user[0]._id, { hashed_password: password });
   },
 });

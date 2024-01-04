@@ -5,9 +5,7 @@ import { usePaginatedQuery } from "convex/react";
 import { useEffect, useRef, useState } from "react";
 import { api } from "../../../../convex/_generated/api";
 import { useIntersection, useWindowScroll } from "@mantine/hooks";
-import Song from "@/components/admin/songbook/song";
 import Spinner from "@/components/spinner";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import SongSuggest from "@/components/admin/suggests/songSuggest";
 

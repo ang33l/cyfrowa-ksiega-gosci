@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { MdOutlineVideoFile } from "react-icons/md";
 import MemoImage from "../memoImage";
-import { useMemo, useCallback, Dispatch, SetStateAction } from "react";
+import { useMemo, Dispatch, SetStateAction } from "react";
 
 interface FilesInspectProps {
     files: File[];
@@ -11,9 +10,6 @@ interface FilesInspectProps {
 
 const FilesInspect = ({ files, setFiles }: FilesInspectProps) => {
 
-    const handleFilesChange = useCallback((newFiles: File[]) => {
-        setFiles(newFiles);
-    }, []);
     const memoizedFiles = useMemo(() => files, [files]);
 
     const deleteFile = (setFiles: (files: any) => void, index: number) => {

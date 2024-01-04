@@ -13,10 +13,11 @@ const DialogTemplate = (
         buttonClassName: string,
         button_content: JSX.Element,
         dialog_title: string,
-        dialog_description: string,
-        button_accept_text: string,
-        onAcceptClick: () => void
+        dialog_description: string | JSX.Element,
+        button_accept_text: string | JSX.Element,
+        onAcceptClick: (() => void) | ((e: React.MouseEvent<HTMLButtonElement>) => void)
     }) => {
+
 
 
 
@@ -40,7 +41,10 @@ const DialogTemplate = (
 
                     <div className="mt-[25px] flex justify-end gap-2">
                         <Dialog.Close asChild>
-                            <button onClick={onAcceptClick} className="bg-red-500 text-white hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
+                            <button onClick={onAcceptClick} className={
+                                `${button_accept_text === "Usuń" && "bg-red-500"} 
+                                ${button_accept_text === "Zatwierdź" && "bg-green-600"}
+                                 text-white hover:bg-green5 focus:shadow-green7 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none`}>
                                 {button_accept_text}
                             </button>
                         </Dialog.Close>

@@ -1,5 +1,4 @@
 import Spinner from "@/components/spinner";
-import { Any } from "@react-spring/web";
 
 export default function Stat({ name, counter, loading = false }: { name: string, counter?: number, loading?: boolean }) {
     return (

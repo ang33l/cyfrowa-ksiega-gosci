@@ -1,13 +1,9 @@
 "use client"
 import { useQuery, } from "convex/react"
 import { api } from "../../../../../convex/_generated/api"
-import { notFound } from "next/navigation"
 import Spinner from "@/components/spinner"
-import LeadText from "@/components/leadText"
 import Link from "next/link"
 import { MdArrowBackIos } from "react-icons/md"
-import SingleWish from "@/components/admin/wishes/singleWish"
-import SingleSong from "@/components/admin/songbook/singleSong"
 import SingleQuestion from "@/components/admin/quiz/singleQuestion"
 
 export default function Page({ params: { questionId } }: { params: { questionId: string } }) {

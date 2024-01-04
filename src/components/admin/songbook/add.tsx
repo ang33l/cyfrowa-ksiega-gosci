@@ -1,26 +1,11 @@
 "use client"
-import Button from "@/components/button";
-import Link from "next/link";
-import { FaTrashAlt } from "react-icons/fa";
 import { useState } from "react";
-import DialogTemplate from "@/components/dialog";
-
-import { Doc, Id } from "../../../../convex/_generated/dataModel";
-import axios from "axios";
 import { api } from "../../../../convex/_generated/api";
-import { useQuery, useMutation } from "convex/react";
-import { PhotoProvider, PhotoView } from "react-photo-view";
-import Image from "next/image";
-import { Fade } from "react-slideshow-image";
+import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
-import { FiEdit } from "react-icons/fi";
-import { FaCheck } from "react-icons/fa";
-import { RxCross2 } from "react-icons/rx";
 export default function AddSong() {
     const [title, setTitle] = useState("")
     const [text, setText] = useState("")
-    const [titleEditMode, setTitleEditMode] = useState(false)
-    const [textEditMode, setTextEditMode] = useState(false)
 
     const addSong = useMutation(api.songs.addSong)
     const router = useRouter()
