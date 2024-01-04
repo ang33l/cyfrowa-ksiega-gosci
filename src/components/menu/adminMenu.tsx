@@ -29,6 +29,9 @@ function Menu(props: { menuOpened: boolean, toggleMenu: Dispatch<SetStateAction<
         { label: 'Zarządzanie śpiewnikiem', path: '/admin/songbook' },
         { label: 'Propozycje piosenek', path: '/admin/suggests' },
         { label: 'Zarządzanie quizem', path: '/admin/quiz' },
+        { label: 'Zarządzanie harmonogramem', path: '/admin/schedule' },
+        { label: 'Zarządzanie posiłkami', path: '/admin/meals' },
+        { label: 'Ustawienia aplikacji', path: '/admin/settings' },
     ];
 
     return (<>

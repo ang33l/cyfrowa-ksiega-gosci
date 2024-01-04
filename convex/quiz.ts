@@ -24,6 +24,9 @@ export const createQuiz = mutation({
 export const getQuestions = query({
   args: { quiz_uid: v.string() },
   handler: async ({ db }, { quiz_uid }) => {
+    if (!quiz_uid) {
+      return [];
+    }
     const quiz = await db
       .query("quiz")
       .filter((q) => q.eq(q.field("quiz_uid"), quiz_uid))

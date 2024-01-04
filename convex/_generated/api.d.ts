@@ -15,9 +15,11 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as files from "../files.js";
+import type * as meal from "../meal.js";
 import type * as passwords from "../passwords.js";
 import type * as question from "../question.js";
 import type * as quiz from "../quiz.js";
+import type * as schedule from "../schedule.js";
 import type * as songs from "../songs.js";
 import type * as song_suggest from "../song_suggest.js";
 import type * as wishes from "../wishes.js";
@@ -32,9 +34,11 @@ import type * as wishes from "../wishes.js";
  */
 declare const fullApi: ApiFromModules<{
   files: typeof files;
+  meal: typeof meal;
   passwords: typeof passwords;
   question: typeof question;
   quiz: typeof quiz;
+  schedule: typeof schedule;
   songs: typeof songs;
   song_suggest: typeof song_suggest;
   wishes: typeof wishes;
