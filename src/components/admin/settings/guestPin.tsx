@@ -1,15 +1,25 @@
 "use client"
 import DialogTemplate from "@/components/dialog";
-import { useMutation, } from "convex/react";
+//import { useMutation, } from "convex/react";
 import { useState } from "react";
 import { api } from "../../../../convex/_generated/api";
 import { toast } from "react-toastify";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 export default function GuestPin() {
     const [newGuestPassword, setNewGuestPassword] = useState("")
     const [newGuestPasswordRepeat, setNewGuestPasswordRepeat] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
-    const updatePassword = useMutation(api.passwords.updateGuestPassword)
+    //const updatePassword = useMutation(api.passwords.updateGuestPassword)
+    const updatePassword = useMutation({
+        mutationFn: (data: { password: string }) => {
+            return axios.post('/api/password/guest/update', data)
+        },
+        onSuccess: () => {
+            toast.success("Zmieniono PIN dla gości")
+        },
+    })
     const onDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
         if (!newGuestPassword || !newGuestPasswordRepeat) {
             e.preventDefault()
@@ -23,9 +33,7 @@ export default function GuestPin() {
             e.preventDefault()
             setErrorMessage("Hasło musi mieć minimum 4 znaki!")
         }
-        updatePassword({ password: newGuestPassword }).finally(() => {
-            toast.success("Zmieniono PIN dla gości")
-        })
+        updatePassword.mutate({ password: newGuestPassword })
         setErrorMessage("")
 
     }

@@ -22,11 +22,13 @@ export default function RootLayout({
 
       <html lang="en">
         <body>
-          <UserAuthProvider>
-            <ClientLayout>
+          <ClientLayout>
+            <UserAuthProvider>
+
               {children}
-            </ClientLayout>
-          </UserAuthProvider>
+
+            </UserAuthProvider>
+          </ClientLayout>
         </body>
       </html>
     </ConvexClientProvider>

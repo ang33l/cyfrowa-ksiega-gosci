@@ -12,7 +12,7 @@ export default function Page() {
         <p>14.08.2023r.</p>
         <div className="flex flex-col">
             {events.map((event, i) => {
-                return <ScheduleEvent index={i} time={event.time} description={event.description} />
+                return <ScheduleEvent key={i} index={i} time={event.time} description={event.description} />
             })}
 
         </div>

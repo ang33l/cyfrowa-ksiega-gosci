@@ -17,7 +17,7 @@ export default function MenuOption(props: ScheduleEventProps) {
         <div className={`${index % 2 == 0 && "bg-[#f7ba604b]"} p-2 flex-[4]`}>
             <ul className="list-disc list-inside">
                 {description.map((e, i) => {
-                    return <li>{e.meal_description}</li>
+                    return <li key={i}>{e.meal_description}</li>
                 })}
             </ul>
         </div>

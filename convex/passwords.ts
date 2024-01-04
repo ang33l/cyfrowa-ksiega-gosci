@@ -95,7 +95,7 @@ export const compareToEmployeePassword = query({
     if (employeePassword.length == 0) {
       return false;
     }
-
+    //return employeePassword[0].hashed_password;
     if (employeePassword[0].hashed_password == password) {
       return true;
     } else {

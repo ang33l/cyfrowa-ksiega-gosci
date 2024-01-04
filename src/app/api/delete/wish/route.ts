@@ -7,7 +7,6 @@ export async function DELETE(req: NextRequest, res: Response) {
   const data = await req.json();
   const wishId = data.wish_id;
 
-  const filePath = process.env.FILE_UPLOAD_URL;
   const path = process.env.NEXT_PUBLIC_CONVEX_URL || "";
   const client = new ConvexHttpClient(path);
   try {

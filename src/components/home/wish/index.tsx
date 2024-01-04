@@ -29,7 +29,7 @@ export default function Wish({ _id, wish_author, wish_content, _creationTime }: 
             {imagesLinks && imagesLinks?.length === 1 ? imagesLinks[0].wish_media_file.includes('.mp4') ? <video
 
                 className="w-full max-h-[350px]"
-                src={`/api/get/image/${imagesLinks[0].wish_media_file}`} controls>
+                src={`/api/get/image/${imagesLinks[0].wish_media_file}`} controls playsInline>
             </video> :
                 <PhotoProvider>
                     <PhotoView src={`/api/get/image/${imagesLinks[0].wish_media_file}`}>

@@ -13,8 +13,9 @@ export default function Page() {
     const [mealAddMode, setMealAddMode] = useState<boolean>(false)
     const [newMeal, setNewMeal] = useState<string>("")
     const meals = useQuery(api.meal.getMeals)
-    if (!meals) return <Spinner text="Wczytywanie posiłków..." />
     const addMutation = useMutation(api.meal.addMeal)
+
+    if (!meals) return <Spinner text="Wczytywanie posiłków..." />
     return (
         <div className="mt-6 flex flex-col gap-2">
             <div className="flex justify-between">

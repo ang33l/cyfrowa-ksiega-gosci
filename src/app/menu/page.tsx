@@ -12,7 +12,7 @@ export default function Page() {
         <p>14.08.2023r.</p>
         <div className="flex flex-col">
             {menu.map((meal, i) => {
-                return <MenuOption index={i} time={meal.meal_time} description={meal.meals} />
+                return <MenuOption key={i} index={i} time={meal.meal_time} description={meal.meals} />
 
             })}
 
