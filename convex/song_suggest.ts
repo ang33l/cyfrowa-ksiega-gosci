@@ -24,6 +24,34 @@ export const getSongSuggestsWithFilter = query({
   },
 });
 
+export const getSongSuggestsWithFilterForEmployee = query({
+  args: { filter: v.string() },
+  handler: async (ctx, args) => {
+    if (args.filter !== "") {
+      const data = await ctx.db
+        .query("song_suggest")
+        .withSearchIndex("search_song_name", (q) =>
+          q.search("song_name", args.filter)
+        )
+        .collect();
+
+      return data.sort((a, b) => {
+        const aValue = a.sung ? 1 : 0;
+        const bValue = b.sung ? 1 : 0;
+
+        return aValue - bValue;
+      });
+    }
+    const data = await ctx.db.query("song_suggest").order("desc").collect();
+    return data.sort((a, b) => {
+      const aValue = a.sung ? 1 : 0;
+      const bValue = b.sung ? 1 : 0;
+
+      return aValue - bValue;
+    });
+  },
+});
+
 export const updateSongState = mutation({
   args: { sung: v.boolean(), song_id: v.id("song_suggest") },
   handler: async (ctx, args) =>
