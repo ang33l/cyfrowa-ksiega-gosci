@@ -27,7 +27,7 @@ export default function Page() {
                         setEventAddMode(!eventAddMode)
                     }}
                     className="p-2 flex gap-1 items-center bg-orange-400 rounded-lg text-white font-bold">
-                    <IoAdd className={'text-2xl'} /> Dodaj posiłek
+                    <IoAdd className={'text-2xl'} /> Dodaj wydarzenie
                 </button>
             </div>
             {eventAddMode &&

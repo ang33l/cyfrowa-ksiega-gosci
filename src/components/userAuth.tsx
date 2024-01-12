@@ -55,7 +55,7 @@ export default function UserAuth() {
           Anna <BsHeartFill className={"text-4xl"} /> Alekasander
         </div>
         <p className='text-2xl text-center'>Witaj w cyfrowej księdze gości! Aby się zalogować wpisz poniżej kod PIN!</p>
-        <input type="number" className={`border-primary 
+        <input type="password" className={`border-primary 
           px-2 py-4 
           text-3xl 
           text-center

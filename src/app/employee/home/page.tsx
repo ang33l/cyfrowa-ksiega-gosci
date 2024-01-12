@@ -28,8 +28,8 @@ export default function Page() {
           " onChange={(e) => setSearch(e.target.value)} />
             <div className="pb-2 flex flex-col gap-2 mt-2">
 
-                {data?.map(({ _id, _creationTime, song_name, sung }) => (
-                    <EmployeeSongSuggest _id={_id} _creationTime={_creationTime} song_name={song_name} sung={sung} />
+                {data?.map(({ _id, _creationTime, song_name, sung }, i) => (
+                    <EmployeeSongSuggest key={i} _id={_id} _creationTime={_creationTime} song_name={song_name} sung={sung} />
                 ))}
             </div>
         </div>

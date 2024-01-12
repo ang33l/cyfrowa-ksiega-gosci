@@ -1,5 +1,5 @@
 const fs = require("fs");
-
+//const sharp = require("sharp");
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../../convex/_generated/api.js";
 
@@ -13,8 +13,6 @@ export default async function saveFile(file: File, wishId: string) {
   const generatedFileName = guidGenerator();
   const fileFormat = file.type.split("/")[1];
 
-  const fullFileName = `${generatedFileName}.${fileFormat}`;
-
   if (!fs.existsSync(filePath)) {
     fs.mkdirSync(filePath, { recursive: true });
   }
@@ -22,8 +20,12 @@ export default async function saveFile(file: File, wishId: string) {
   const arrayBuffer = await file.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
 
+  // await sharp(buffer)
+  //   .webp({ quality: 20 })
+  //   .toFile(filePath + generatedFileName);
+
   fs.writeFileSync(
-    `${filePath}/${fullFileName}`,
+    `${filePath}/${generatedFileName}.${fileFormat}`,
     buffer,
     "binary",
     (err: any) => {
@@ -38,6 +40,6 @@ export default async function saveFile(file: File, wishId: string) {
 
   await client.mutation(api.files.saveFileInfo, {
     wish_id: dbWishId[0]._id,
-    file: fullFileName,
+    file: generatedFileName + "." + fileFormat,
   }); //dorobic zapisanie pliku, poprawic wpisywanie do bazy - zrobic wczensiejsze dodawanie samych zyczen bedzie LUX <3
 }

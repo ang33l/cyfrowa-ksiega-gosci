@@ -29,6 +29,8 @@ export default function Page() {
         var uploadArray: File[] = [];
         if (files.length === 0) {
             uploadArray = [];
+            setIsLoading(false);
+            return;
         } else {
             uploadArray = [...files];
         }
@@ -87,6 +89,7 @@ export default function Page() {
                 dataFiles={files}
                 setFiles={setFiles}
                 isLoading={isLoading}
+                required={true}
             />
             <Button disabled={isLoading} className={"relative"}>
                 {isLoading && (
@@ -100,7 +103,7 @@ export default function Page() {
                     ? progress == 100
                         ? "Zapisywanie na serwerze..."
                         : `Wysyłanie... ${progress}%`
-                    : "Wyślij życzenia"}
+                    : "Wyślij multimedia"}
             </Button>
         </form>
     );

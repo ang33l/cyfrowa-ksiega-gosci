@@ -45,11 +45,11 @@ export default function GuestPin() {
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col">
                         <label className="text-gray-500">Nowy PIN</label>
-                        <input type="password" onChange={e => setNewGuestPassword(e.target.value)} placeholder="Podaj PIN" className="border border-gray-300 rounded-md p-2" />
+                        <input type="text" onChange={e => setNewGuestPassword(e.target.value)} placeholder="Podaj PIN" className="border border-gray-300 rounded-md p-2" />
                     </div>
                     <div className="flex flex-col">
                         <label className="text-gray-500">Potwierdź nowy PIN</label>
-                        <input type="password" onChange={e => setNewGuestPasswordRepeat(e.target.value)} placeholder="Powtórz" className="border border-gray-300 rounded-md p-2" />
+                        <input type="text" onChange={e => setNewGuestPasswordRepeat(e.target.value)} placeholder="Powtórz" className="border border-gray-300 rounded-md p-2" />
                     </div>
                     {errorMessage && <p className="text-red-500">{errorMessage}</p>}
                 </div>

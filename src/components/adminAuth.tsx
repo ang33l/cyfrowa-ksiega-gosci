@@ -30,14 +30,14 @@ export default function AdminAuth() {
         setIsError(false)
         if (input.length === 0) {
             setIsError(true);
-            setErrorMessage('Uzupełnij kod PIN!')
+            setErrorMessage('Uzupełnij hasło!')
             return;
         }
         if (comparePassword) {
             setPinCode(input);
         } else {
             setIsError(true);
-            setErrorMessage('Niepoprawny kod PIN!')
+            setErrorMessage('Niepoprawne hasło!')
         }
     };
     if (!isCookieLoaded) return <Loading />
@@ -50,7 +50,7 @@ export default function AdminAuth() {
 
             <div className={`flex flex-col gap-4 w-full `}>
                 <p className='text-2xl text-center'>Wpisz hasło aby zalogować się do panelu administratora!</p>
-                <input type="number" className={`border-primary 
+                <input type="password" className={`border-primary 
           px-2 py-4 
           text-3xl 
           text-center

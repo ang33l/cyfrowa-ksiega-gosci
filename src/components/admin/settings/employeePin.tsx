@@ -48,7 +48,7 @@ export default function EmployeePin() {
             }
             button_accept_text="Zatwierdź"
             buttonClassName=" flex-1  bg-[#9c763d42] rounded-xl p-3 text-xl flex gap-2 items-center text-white"
-            button_content={<>Zmień PIN dla pracownika</>}
+            button_content={<>Zmień hasło pracownika</>}
         />
     )
 }

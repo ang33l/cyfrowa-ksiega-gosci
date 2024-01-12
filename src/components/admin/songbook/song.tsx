@@ -36,7 +36,7 @@ export default function Song({ _id, song_title, song_text, _creationTime }: { _i
         </div>
 
         <Link href={`/admin/songbook/${_id}`} className="flex flex-1 flex-col rounded-xl p-3  bg-[#f7ba604b]">
-            <span>Treść życzeń</span>
+            <span>Tekst piosenki</span>
             <p className="text--ellipsis text-xl  font-bold">{song_text}</p>
         </Link>
 

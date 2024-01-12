@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 export default function AddSong() {
     const [title, setTitle] = useState("")
     const [text, setText] = useState("")
-
+    const [error, setError] = useState("")
     const addSong = useMutation(api.songs.addSong)
     const router = useRouter()
 
@@ -45,12 +45,15 @@ export default function AddSong() {
             </div>
 
         </div>
+        {error && <p className="text-red-500">{error}</p>}
         <button
             onClick={(e) => {
 
                 if (title.length > 0 && text.length > 0) {
                     addSong({ song_title: title, song_text: text })
                     router.push("/admin/songbook")
+                } else {
+                    setError("Wypełnij wszystkie pola!")
                 }
             }}
             className="bg-green-500 py-2 rounded-xl text-white font-bold">
