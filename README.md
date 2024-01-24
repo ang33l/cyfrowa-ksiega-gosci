@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) digital guestbook project for engineeri
 
 It's complex aplication with db, file storage, auth system for 3 independent user types: guest, admin and employee. Every of them have different functionalities.
 
-It has some bugs, but will no longer be developed.
+> **It has some bugs, but will no longer be developed.**
 
 ## Stack
 
