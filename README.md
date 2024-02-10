@@ -1,4 +1,4 @@
-> **It has some bugs, but will no longer be developed.**
+> **It may have some bugs, but it will no longer be developed.**
 
 This is a [Next.js](https://nextjs.org/) digital guestbook project for engineering thesis.
 
